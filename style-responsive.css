@@ -1,0 +1,63 @@
+/* Responsive Design */
+@media (max-width: 768px) {
+    .synth-container {
+        padding: 15px;
+    }
+
+    .controls-section {
+        grid-template-columns: 1fr;
+    }
+
+    .keyboard {
+        height: 150px;
+    }
+
+    .synth-header h1 {
+        font-size: 2em;
+    }
+
+    .knob-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sliders-section {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .physical-slider {
+        height: 100px;
+    }
+
+    .wave-buttons {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .mode-switch {
+        top: 10px;
+        right: 10px;
+    }
+
+    #toggleMode {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+
+    .knob {
+        width: 60px;
+        height: 60px;
+    }
+
+    .physical-wave-btn {
+        width: 50px;
+        height: 50px;
+    }
+
+    .wave-icon {
+        width: 30px;
+        height: 30px;
+        margin: 10px;
+    }
+}

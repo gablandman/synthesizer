@@ -1,0 +1,220 @@
+/* Mode Physique */
+.physical-mode {
+    background: var(--synth-metal);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 
+        0 0 50px rgba(0, 0, 0, 0.8),
+        inset 0 0 30px rgba(0, 0, 0, 0.6);
+}
+
+.synth-panel {
+    background: #2a2a2a;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid #333;
+    box-shadow: 
+        inset 0 0 20px rgba(0, 0, 0, 0.5),
+        0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Écran LCD */
+.lcd-screen {
+    background: var(--lcd-bg);
+    border: 3px solid #444;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 30px;
+    font-family: 'Courier New', monospace;
+    color: var(--lcd-text);
+    box-shadow: 
+        inset 0 0 10px rgba(0, 255, 0, 0.2),
+        0 0 20px rgba(0, 255, 0, 0.1);
+}
+
+.lcd-content {
+    display: grid;
+    gap: 10px;
+}
+
+.lcd-row {
+    display: flex;
+    justify-content: space-between;
+    text-shadow: 0 0 5px var(--lcd-text);
+}
+
+/* Mollettes */
+.knob-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.knob-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.knob {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--knob-metal);
+    position: relative;
+    cursor: pointer;
+    box-shadow: 
+        0 5px 15px rgba(0, 0, 0, 0.3),
+        inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.knob-dot {
+    position: absolute;
+    width: 4px;
+    height: 20px;
+    background: var(--primary-color);
+    top: 5px;
+    left: 50%;
+    transform-origin: bottom center;
+    border-radius: 2px;
+    box-shadow: 0 0 5px var(--primary-color);
+}
+
+/* Sliders Physiques */
+.sliders-section {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0;
+}
+
+.slider-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.physical-slider {
+    height: 150px;
+    width: 40px;
+    background: #333;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 
+        inset 0 0 10px rgba(0, 0, 0, 0.8),
+        0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.slider-handle {
+    width: 50px;
+    height: 20px;
+    background: var(--knob-metal);
+    position: absolute;
+    left: -5px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 
+        0 2px 5px rgba(0, 0, 0, 0.5),
+        inset 0 0 5px rgba(255,255,255,0.1);
+}
+
+/* Boutons de forme d'onde */
+.wave-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.physical-wave-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    background: var(--knob-metal);
+    border: none;
+    cursor: pointer;
+    box-shadow: 
+        0 3px 10px rgba(0, 0, 0, 0.3),
+        inset 0 0 5px rgba(255,255,255,0.1);
+}
+
+.physical-wave-btn.active {
+    background: var(--primary-color);
+    box-shadow: 
+        0 0 15px var(--primary-color),
+        inset 0 0 10px rgba(255,255,255,0.3);
+}
+
+.wave-icon {
+    width: 40px;
+    height: 40px;
+    margin: -10px;
+    position: relative;
+}
+
+/* SVG pour les formes d'onde */
+.wave-icon.sine::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M5 20 Q 15 5, 20 20 Q 25 35, 35 20' stroke='%23ffffff' fill='none' stroke-width='2'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.wave-icon.square::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M5 20 L 5 10 L 20 10 L 20 30 L 35 30 L 35 20' stroke='%23ffffff' fill='none' stroke-width='2'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.wave-icon.saw::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M5 30 L 20 10 L 20 30 L 35 10' stroke='%23ffffff' fill='none' stroke-width='2'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.wave-icon.triangle::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M5 20 L 13 10 L 27 30 L 35 20' stroke='%23ffffff' fill='none' stroke-width='2'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* Animation des contrôles */
+.knob:active {
+    transform: scale(0.98);
+}
+
+.physical-wave-btn:active {
+    transform: scale(0.95);
+}
+
+.slider-handle:active {
+    transform: scale(0.98);
+}
+
+/* Clavier Physique */
+.physical-keyboard {
+    margin-top: 30px;
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 
+        inset 0 0 20px rgba(0, 0, 0, 0.8),
+        0 5px 15px rgba(0, 0, 0, 0.3);
+}

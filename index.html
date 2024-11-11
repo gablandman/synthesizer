@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synthétiseur Web</title>
+    <link rel="stylesheet" href="style-base.css">
+    <link rel="stylesheet" href="style-digital.css">
+    <link rel="stylesheet" href="style-physical.css">
+    <link rel="stylesheet" href="style-responsive.css">
+</head>
+<body>
+    <div class="mode-switch">
+        <button id="toggleMode">Mode Réel / Digital</button>
+    </div>
+
+    <div class="synth-container digital-mode">
+        <div class="synth-header">
+            <h1>Synthétiseur Web</h1>
+            <div class="instructions">
+                <p>Cliquez n'importe où pour activer le son</p>
+                <p>Touches du clavier: Q,Z,S,E,D,F,T,G,Y,H,U,J,K</p>
+            </div>
+        </div>
+        
+        <div class="controls-section">
+            <div class="oscillator-section">
+                <h2>Oscillateur</h2>
+                <div class="waveform-selector">
+                    <button class="wave-btn active" data-wave="sine">Sine</button>
+                    <button class="wave-btn" data-wave="square">Square</button>
+                    <button class="wave-btn" data-wave="sawtooth">Saw</button>
+                    <button class="wave-btn" data-wave="triangle">Triangle</button>
+                </div>
+                <div class="oscillator-controls">
+                    <div class="control-group">
+                        <label>Volume</label>
+                        <input type="range" min="0" max="1" step="0.01" value="0.5" class="volume-control">
+                    </div>
+                    <div class="control-group">
+                        <label>Detune</label>
+                        <input type="range" min="-100" max="100" value="0" class="detune-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h2>Filtre</h2>
+                <div class="filter-controls">
+                    <div class="control-group">
+                        <label>Fréquence</label>
+                        <input type="range" min="20" max="20000" step="1" value="2000" class="filter-freq">
+                    </div>
+                    <div class="control-group">
+                        <label>Résonance</label>
+                        <input type="range" min="0" max="30" step="0.1" value="1" class="filter-q">
+                    </div>
+                </div>
+            </div>
+
+            <div class="envelope-section">
+                <h2>Enveloppe ADSR</h2>
+                <div class="envelope-controls">
+                    <div class="control-group">
+                        <label>Attack</label>
+                        <input type="range" min="0" max="2" step="0.01" value="0.1" class="attack-control">
+                    </div>
+                    <div class="control-group">
+                        <label>Decay</label>
+                        <input type="range" min="0" max="2" step="0.01" value="0.1" class="decay-control">
+                    </div>
+                    <div class="control-group">
+                        <label>Sustain</label>
+                        <input type="range" min="0" max="1" step="0.01" value="0.5" class="sustain-control">
+                    </div>
+                    <div class="control-group">
+                        <label>Release</label>
+                        <input type="range" min="0" max="2" step="0.01" value="0.1" class="release-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="effects-section">
+                <h2>Effets</h2>
+                <div class="effects-controls">
+                    <div class="control-group">
+                        <label>Delay</label>
+                        <input type="range" min="0" max="1" step="0.01" value="0" class="delay-control">
+                    </div>
+                    <div class="control-group">
+                        <label>Reverb</label>
+                        <input type="range" min="0" max="1" step="0.01" value="0" class="reverb-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="keyboard">
+            <div class="keys">
+                <!-- Les touches seront générées en JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <div class="synth-container physical-mode hidden">
+        <div class="synth-panel">
+            <div class="lcd-screen">
+                <div class="lcd-content">
+                    <div class="lcd-row">Wave: <span class="wave-display">Sine</span></div>
+                    <div class="lcd-row">Vol: <span class="volume-display">50%</span></div>
+                    <div class="lcd-row">Filter: <span class="filter-display">2000Hz</span></div>
+                </div>
+            </div>
+
+            <div class="physical-controls">
+                <div class="knob-section">
+                    <div class="knob-group">
+                        <div class="knob volume-knob" data-control="volume">
+                            <div class="knob-dot"></div>
+                        </div>
+                        <label>Volume</label>
+                    </div>
+                    <div class="knob-group">
+                        <div class="knob filter-knob" data-control="filter">
+                            <div class="knob-dot"></div>
+                        </div>
+                        <label>Filter</label>
+                    </div>
+                    <div class="knob-group">
+                        <div class="knob resonance-knob" data-control="resonance">
+                            <div class="knob-dot"></div>
+                        </div>
+                        <label>Resonance</label>
+                    </div>
+                </div>
+
+                <div class="wave-buttons">
+                    <button class="physical-wave-btn active" data-wave="sine">
+                        <div class="wave-icon sine"></div>
+                    </button>
+                    <button class="physical-wave-btn" data-wave="square">
+                        <div class="wave-icon square"></div>
+                    </button>
+                    <button class="physical-wave-btn" data-wave="sawtooth">
+                        <div class="wave-icon saw"></div>
+                    </button>
+                    <button class="physical-wave-btn" data-wave="triangle">
+                        <div class="wave-icon triangle"></div>
+                    </button>
+                </div>
+
+                <div class="sliders-section">
+                    <div class="slider-group">
+                        <div class="physical-slider">
+                            <div class="slider-handle attack-slider"></div>
+                        </div>
+                        <label>A</label>
+                    </div>
+                    <div class="slider-group">
+                        <div class="physical-slider">
+                            <div class="slider-handle decay-slider"></div>
+                        </div>
+                        <label>D</label>
+                    </div>
+                    <div class="slider-group">
+                        <div class="physical-slider">
+                            <div class="slider-handle sustain-slider"></div>
+                        </div>
+                        <label>S</label>
+                    </div>
+                    <div class="slider-group">
+                        <div class="physical-slider">
+                            <div class="slider-handle release-slider"></div>
+                        </div>
+                        <label>R</label>
+                    </div>
+                </div>
+
+                <div class="effects-knobs">
+                    <div class="knob-group">
+                        <div class="knob delay-knob" data-control="delay">
+                            <div class="knob-dot"></div>
+                        </div>
+                        <label>Delay</label>
+                    </div>
+                    <div class="knob-group">
+                        <div class="knob reverb-knob" data-control="reverb">
+                            <div class="knob-dot"></div>
+                        </div>
+                        <label>Reverb</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="physical-keyboard">
+                <div class="keys">
+                    <!-- Les touches seront générées en JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
