@@ -7,12 +7,13 @@
 
 ![image](screens/analogic.png)
 
-#### Made with ClaudeDev 🦾
+### Run locally 
 
-OpenRouter API - anthropic/claude-3.5-sonnet:beta
 
-Tokens: Input 2.2m Output 57.5k
-API Cost: $1.8739
+```
+docker run -d -p 8080:80 synthesizer
+```
+
 
 ### Coming soon : Additional Modules 🎛️
 
